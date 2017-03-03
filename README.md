@@ -43,3 +43,18 @@ For the final step in creating a tidy data set, the data are combined with label
     names(composite) <- c("subject", "activity", as.character(features$V2))
 
 The "composite" data set is created by binding the subject, activities, and X variables using cbind.  The labels for the column variables are obtained from the second column in the data set from the features.txt file.
+
+###Producing a more compact summary data set
+After the tidy data set is created, the data set can be analyzed.  Because we are interested in the data that reports mean and standard deviation values, the data set is filtered to report only this data, as shown below.
+
+    # create a more compact dataset that includes only mean() and sd() measurements
+    filtered <- cbind(composite["subject"], composite["activity"],
+        composite[(grepl("[Mm]ean\\(\\)", names(composite)) | grepl("std\\(\\)", names(composite)))])
+
+Finally, because we are interested in a summary that contains the average over subjects and activities, we can "melt" and "recast" the data to produce a data set that provides this summary.
+
+    # create a summarized dataset by averaging over subject and activity
+    melted <- melt(filtered, id = c("subject", "activity"), measure.vars=names(filtered[3:length(names(filtered))]))
+    datasummary <- dcast(melted, subject + activity ~ variable, mean)
+
+The variable, datasummary is the summarized tidy data set of interest.
