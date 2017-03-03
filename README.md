@@ -10,7 +10,7 @@ The run_analysis.R script performs a series of operations on data from files in 
 
 ##Details
 ###Combining Data
-The "Human Activity Recognition Using Smartphones Data Set" contains data obtained from 30 subjects and the data are split between a training set and a test set.  The run_analysis.R script combines the datasets using the rbind command as shown below.
+The "Human Activity Recognition Using Smartphones Data Set" contains data obtained from 30 subjects and the data are split between a training set and a test set.  The run_analysis.R script combines the data sets using the rbind command as shown below.
 
     # combine training and test data sets
     X <- rbind(X_train, X_test)
@@ -57,4 +57,4 @@ Finally, because we are interested in a summary that contains the average over s
     melted <- melt(filtered, id = c("subject", "activity"), measure.vars=names(filtered[3:length(names(filtered))]))
     datasummary <- dcast(melted, subject + activity ~ variable, mean)
 
-The variable, datasummary is the summarized tidy data set of interest.
+The variable "datasummary" is the summarized tidy data set of interest.
