@@ -1,15 +1,15 @@
 # Getting-and-Cleaning-Data-Final-Project
 Repo for the final project of the Coursera Getting and Cleaning Data course
 
-##Overview
+## Overview
 The R script, run_analysis.R, reads in data from the UC Irvine "Human Activity Recognition Using Smartphones Data Set", assembles the data into a single tidy data set, and performs a series of operations on this data set to produce a condensed tidy summary data set.
 
 To be considered a tidy data set, a data set must have one type of measurement per column and each row must contain observations from a unique sample.  Each column of tidy data must have a descriptive header.  Additionally, factor labels used to classify data must be descriptive for the data to be considered tidy.
 
 The run_analysis.R script performs a series of operations on data from files in the "Human Activity Recognition Using Smartphones Data Set" in order to produce a data set that conforms to the tidy data set principles described above.
 
-##Details
-###Combining Data
+## Details
+### Combining Data
 The "Human Activity Recognition Using Smartphones Data Set" contains data obtained from 30 subjects and the data are split between a training set and a test set.  The run_analysis.R script combines the data sets using the rbind command as shown below.
 
     # combine training and test data sets
@@ -19,7 +19,7 @@ The "Human Activity Recognition Using Smartphones Data Set" contains data obtain
 
 The X variable contains the observational data.  X_train and X_test are read from the X_train.txt and X_test.txt files, respectively.  The y variable is a numerical column vector that describes the activity performed while the data was collected (y_train and y_test are read from y_train.txt and y_test.txt, respectively).  The subject variable is a column vector that indicates which subject the data was collected on (subject_train and subject_test are read from subject_train.txt and subject_test.txt, respectively).  The subject and y variables, together identify the unique "sample" that data are obtained on.
 
-###Converting y labels to descriptive labels
+### Converting y labels to descriptive labels
 In order to create a tidy data set, the y labels (which are integer valued) must be converted to descriptive labels.  The information for performing this conversion between y value and a descriptive "activity" label is contained in the activity_labels.txt file.  The code below performs this conversion and yields a new column vector, "activities".
 
     # replace y numerical values with tidy activity labels
@@ -35,7 +35,7 @@ In order to create a tidy data set, the y labels (which are integer valued) must
       activities[i,1] <- val
     }
 
-###Creating a tidy data set
+### Creating a tidy data set
 For the final step in creating a tidy data set, the data are combined with labels for the data as shown below.
 
     # bind all data together and label it to make a tidy dataset
