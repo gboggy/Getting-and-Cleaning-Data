@@ -1,12 +1,12 @@
-##Dataset produced by run_analysis.R
+## Dataset produced by run_analysis.R
 
 The run_analysis.R script performs a series of operations on the "Human Activity Recognition Using Smartphones Data Set" (heretofore referred to as the original data set) to produce a tidy data set that contains data averaged over subjects and activities.  The data in the original data set were collected from 30 subjects performing each of six activities multiple times.  The data of interest are the mean and standard deviation values reported in the original data set, and which were obtained on the features described in the next section.  The labels for the mean and standard deviation in the final data set contain -mean() and -std() appended to the relevant feature (but before the -XYZ modifier) described in the next section.
 
 The data in the original data set have been normalized and are bounded within [-1, 1].  The data are thus unitless.  Averaging the mean and standard deviation values over subjects and activities also results in unitless values.
 
-##Description of the features
+## Description of the features
 
-####(Note that this description is excerpted from the features_info.txt file of the "Human Activity Recognition Using Smartphones Data Set".) 
+#### (Note that this description is excerpted from the features_info.txt file of the "Human Activity Recognition Using Smartphones Data Set".) 
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
 These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
